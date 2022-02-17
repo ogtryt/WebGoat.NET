@@ -22,8 +22,9 @@ jobs:
         with:
           image-ref: 'file/webgoat:${{ github.sha }}'
           format: 'sarif'
-          scan-ref: './WebGoatCore'
           output: 'trivy-results.sarif'
+        env:
+          TRIVY_IGNOREFILE: './WebGoatCore/.trivyignore'
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
