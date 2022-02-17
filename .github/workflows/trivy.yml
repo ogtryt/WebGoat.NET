@@ -23,6 +23,9 @@ jobs:
           image-ref: 'file/webgoat:api'
           format: 'sarif'
           output: 'trivy-results.sarif'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'HIGH,CRITICAL'
         env:
           TRIVY_IGNOREFILE: './WebGoatCore/.trivyignore'
 
